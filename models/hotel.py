@@ -20,6 +20,37 @@ class HotelModel(database.Model):
         self.rate = rate
         self.city = city
 
+
     def json(self):
 
         return {'id': self.id, 'name': self.name, 'stars': self.stars, 'rate': self.rate, 'city': self.city}
+
+
+    @classmethod
+    def find_hotel(cls, id):
+
+        hotel = cls.query.filter_by(id = id).first()
+        
+        if hotel:
+            return hotel
+        
+        return None
+
+
+    def save_hotel(self):
+
+        database.session.add(self)
+        database.session.commit()
+
+
+    def update_hotel(self, name, stars, rate, city):
+
+        self.name = name
+        self.stars = stars
+        self.rate = rate
+        self.city = city
+
+    def delete_hotel(self):
+        
+        database.session.delete(self)
+        database.session.commit()
