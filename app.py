@@ -5,6 +5,7 @@ from resources.hotel import Hoteis, Hotel
 from resources.user import User, UserRegister, UserLogin, UserLogout
 from flask_jwt_extended import JWTManager
 from BLACKLIST import BLACKLIST
+from resources.site import Site, Sites
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///database.db'
@@ -34,9 +35,13 @@ api.add_resource(Hoteis, '/hoteis')
 
 api.add_resource(Hotel, '/hoteis/<string:id>')
 
+api.add_resource(Sites, '/sites')
+
+api.add_resource(Site, '/sites/<string:url>')
+
 api.add_resource(User, '/usuarios/<int:user_id>')
 
-api.add_resource(UserRegister, '/cadastro')
+api.add_resource(UserRegister, '/signin')
 
 api.add_resource(UserLogin, '/login')
 

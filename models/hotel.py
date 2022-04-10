@@ -10,20 +10,22 @@ class HotelModel(database.Model):
     stars = database.Column(database.Float(precision=1))
     rate = database.Column(database.Float(precision=2))
     city = database.Column(database.String(40))
+    site_id = database.Column(database.Integer, database.ForeignKey('sites.site_id'))
+    
 
-
-    def __init__(self, id, name, stars, rate, city) -> None:
+    def __init__(self, id, name, stars, rate, city, site_id) -> None:
         
         self.id = id
         self.name = name
         self.stars = stars
         self.rate = rate
         self.city = city
+        self.site_id = site_id
 
 
     def json(self):
 
-        return {'id': self.id, 'name': self.name, 'stars': self.stars, 'rate': self.rate, 'city': self.city}
+        return {'id': self.id, 'name': self.name, 'stars': self.stars, 'rate': self.rate, 'city': self.city, 'site_id': self.site_id}
 
 
     @classmethod
