@@ -2,8 +2,8 @@ from sql_alchemy import database
 from flask import request, url_for
 from requests import post
 
-MAILGUN_DOMAIN = 'sandbox9003a1eb956c4772a0fe5008d54e5624.mailgun.org'
-MAILGUN_API_KEY = '1d88a612f6c13463bc70efc8fb7b2fb2-162d1f80-bc34fc8e'
+MAILGUN_DOMAIN = ''
+MAILGUN_API_KEY = ''
 FROM_TITLE = 'Email Validation - No-Reply'
 FROM_EMAIL = 'no-reply@restapihoteis.com'
 
